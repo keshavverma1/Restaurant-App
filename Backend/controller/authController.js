@@ -145,4 +145,20 @@ const adminLogin = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser ,logoutUser,adminLogin}; 
+//GetProfile----------------
+const getProfile = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.user._id).select("-password");
+        if(!user){
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+        return res.status(200).json({ user: user });
+    } catch (error) {
+        console.log(error);
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+};
+
+
+
+export { registerUser, loginUser, logoutUser, adminLogin ,getProfile };
