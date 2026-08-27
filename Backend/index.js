@@ -30,6 +30,12 @@ app.use("/auth", authRouter);
 import categoryRouter from "./routes/categoryRoutes.js";
 app.use("/category", categoryRouter);
 
+import menuRouter from "./routes/menuRoutes.js";
+app.use("/menu", menuRouter);
+
+import cartRouter from "./routes/cartRoutes.js";
+app.use("/cart", cartRouter);
+
 //Server is Running
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
