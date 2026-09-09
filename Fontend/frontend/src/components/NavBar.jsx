@@ -109,6 +109,18 @@ const NavBar = () => {
                     Contact
                   </NavLink>
                 </li>
+                 <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-black bg-amber-300 transition-colors rounded-full px-2 py-2"
+                        : "text-white"
+                    }
+                    to="/book-table"
+                  >
+                    BookTable
+                  </NavLink>
+                </li>
               </ul>
             </div>
             {/* Right Items */}
@@ -142,7 +154,7 @@ const NavBar = () => {
                         >
                           <Link
                             className="w-full flex items-center md:px-4 md:py-2 px-2 py-1 hover:bg-gray-300 space-x-2"
-                            to="/my-booking"
+                            to="/my-bookings"
                           >
                             <FaRegCalendarAlt className="mr-3 md:text-3xl text-2xl" />
                             My Booking
@@ -268,7 +280,7 @@ const NavBar = () => {
                           <>
                             {/* MY BOOKING */}
                             <Link
-                              to="/my-booking"
+                              to="/my-bookings"
                               onClick={() => setisMenuopen(false)}
                               className="group flex items-center justify-between
                  text-gray-200 text-xl px-6 py-5 rounded-2xl
@@ -316,6 +328,29 @@ const NavBar = () => {
                               </span>
                             </Link>
                             <Link
+                              to="/book-table"
+                              className="group flex items-center justify-between
+                 text-gray-200 text-xl px-6 py-5 rounded-2xl
+                 bg-gradient-to-r from-[#111111] to-[#0b0b0b]
+                 border border-white/[0.08]
+                 shadow-[0_8px_30px_rgba(0,0,0,0.4)]
+                 hover:from-[#1c1c1c] hover:to-[#111111]
+                 hover:border-amber-400/40
+                 hover:text-amber-300
+                 transition-all duration-300"
+                            >
+                              <Link className="tracking-wide">Book Table</Link>
+
+                              <span
+                                className="text-gray-600 text-2xl
+                       group-hover:text-amber-300
+                       group-hover:translate-x-2
+                       transition-all duration-300"
+                              >
+                                →
+                              </span>
+                            </Link>
+                            <Link
                               onClick={handleLogout}
                               className="group flex items-center justify-between
                  text-gray-200 text-xl px-6 py-5 rounded-2xl
@@ -338,6 +373,7 @@ const NavBar = () => {
                                 →
                               </span>
                             </Link>
+                             
                           </>
                         ) : (
                           <></>

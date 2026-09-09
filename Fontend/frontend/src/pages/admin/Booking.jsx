@@ -5,8 +5,8 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 const Booking = () => {
  
 
-  const { loading, setLoading, axios, admin ,bookings, setAllBookings } = useContext(AppContext);
-
+  const { loading, setLoading, axios, admin ,bookings, setAllBookings, fetchBookings } = useContext(AppContext);
+  const [status, setStatus] = useState("");
   // =========================
   // UPDATE BOOKING STATUS
   // =========================

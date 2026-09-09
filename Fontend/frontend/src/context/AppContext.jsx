@@ -107,11 +107,8 @@ const AppContextProvider = ({ children }) => {
   const fetchBookings = async () => {
     try {
       setLoading(true);
-
       const res = await axios.get("/booking/all");
-
       console.log("BOOKING RESPONSE:", res.data);
-
       if (res.data.success) {
         setAllBookings(res.data.bookings || []);
       } else {
@@ -254,6 +251,7 @@ const AppContextProvider = ({ children }) => {
     setAllOrders,
     bookings,
     setAllBookings,
+    fetchBookings,
     open,
     setOpen,
     toggleDrawer,
