@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 const app = express();
 //Port of Server
-const port = process.env.PORT || 4000;
+
 
 // Connect to the database
 connectDatabase();
@@ -47,7 +47,4 @@ app.use("/order", orderRouter);
 import bookingRouter from "./routes/bookingRoutes.js";
 app.use("/booking", bookingRouter);
 
-//Server is Running
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+export default app;
