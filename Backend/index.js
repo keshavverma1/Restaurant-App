@@ -15,7 +15,7 @@ connectDatabase();
 //Middlewares
 app.use(cors(
   {
-    origin: "http://localhost:5173",
+    origin: "https://restaurant-app-m4ne.vercel.app",
     credentials: true,
   }
 ));
