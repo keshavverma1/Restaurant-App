@@ -6,7 +6,6 @@ import fs from "fs/promises";
 //Add Category
 const addCategory = async (req, res) => {
   const { name } = req.body;
-
   try {
     const path = req.file.path;
     if (!name || !path) {
@@ -24,10 +23,10 @@ const addCategory = async (req, res) => {
     });
     await fs.unlink(req.file.path);
     await category.save();
-    return res.status(201).json({ message: "Category added successfully" });
+    return res.status(201).json({ message: "Category added successfully" ,success:true });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error",success:false });
   }
 };
 
@@ -38,7 +37,7 @@ const getAllCategory = async (req, res) => {
     if (!categories) {
       return res.status(404).json({ message: "Category not found" });
     }
-    return res.status(200).json({ categories: categories });
+    return res.status(200).json({ categories: categories ,success:true });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -52,7 +51,7 @@ const updateCategory = async (req, res) => {
   try {
     const category = await categoryModel.findById(id);
     if (!category) {
-      return res.status(404).json({ message: "Category not found" });
+      return res.status(404).json({ message: "Category not found" , success:false });
     }
     if (req.file) {
       const path = req.file.path;
@@ -65,7 +64,7 @@ const updateCategory = async (req, res) => {
     }
 
     await category.save();
-    return res.status(200).json({ message: "Category updated successfully" });
+    return res.status(200).json({ message: "Category updated successfully",success:true });
   } catch (error) {
     if (error.code === "ENOENT") {
       return res.status(404).json({ message: "File not found" });
@@ -83,7 +82,7 @@ const deleteCategory = async (req, res) => {
     if (!category) {
       return res.status(404).json({ message: "Category not found" });
     }
-    return res.status(200).json({ message: "Category deleted successfully" });
+    return res.status(200).json({ message: "Category deleted successfully",success:true });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });

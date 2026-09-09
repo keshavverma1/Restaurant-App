@@ -5,6 +5,6 @@ const bookingRouter = Router();
 
 bookingRouter.post("/create",protect,createBooking);
 bookingRouter.get("/get",protect,getUserBookings);
-bookingRouter.get("/all",protect,isAdmin,getAllBookings);
-bookingRouter.put("/update/:bookingId",protect,isAdmin,updateBookingStatus);
+bookingRouter.get("/all",isAdmin,getAllBookings);
+bookingRouter.put("/update/:bookingId",isAdmin,updateBookingStatus);
 export default bookingRouter;

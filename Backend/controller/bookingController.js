@@ -56,19 +56,18 @@ const getAllBookings = async (req, res) => {
         if(!bookings){
             return res.status(404).json({message:"Bookings not found"});
         }
-        return res.status(200).json({bookings:bookings});
+        return res.status(200).json({bookings:bookings,message:"Bookings found successfully",success:true});
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }
 
+
 //Update Booking Status 
 const updateBookingStatus = async (req, res) => {
-    const id = req.user._id
     const {bookingId} = req.params
     const {status} = req.body
-
     try {
         const booking = await bookingModel.findOne({_id:bookingId})
         if(!booking){

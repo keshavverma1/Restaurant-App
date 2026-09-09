@@ -9,7 +9,7 @@ const addToCart = async (req, res) => {
     const id = req.user._id;
     const menuItem = await menuModel.findById(menuItemId);
     if (!menuItem) {
-      return res.status(404).json({ message: "Menu item not found" });
+      return res.status(404).json({ message: "Menu item not found" ,success:false });
     }
     const cart = await cartModel.findOne({ user: id });
     if (!cart) {
@@ -21,6 +21,7 @@ const addToCart = async (req, res) => {
       return res.status(201).json({
         message: "Menu item added to cart successfully",
         cart: newCart,
+        success: true,
       });
     } else {
       const existingItem = cart.items.find(
@@ -30,11 +31,12 @@ const addToCart = async (req, res) => {
         existingItem.quantity += quantityNumber;
       } else {
         cart.items.push({ menuItem: menuItemId, quantity: quantity });
+        
       }
       await cart.save();
       return res
         .status(200)
-        .json({ message: "Menu item added to cart successfully", cart: cart });
+        .json({ message: "Menu item added to cart successfully", cart: cart ,success:true });
     }
   } catch (error) {
     console.log(error);
@@ -44,16 +46,17 @@ const addToCart = async (req, res) => {
 
 const getuserCart = async (req, res) => {
   try {
-    const cart = await cartModel
-      .findOne({ user: req.user._id })
-      .populate("items.menuItem");
+    console.log(req.user._id);
+    console.log(req.user);
+    const cart = await cartModel.findOne({ user: req.user._id }).populate("items.menuItem");
+    console.log("Cart Value",cart)
     if (!cart) {
-      return res.status(404).json({ message: "Cart not found" });
+      return res.status(404).json({ message: "Cart not found",success:false });
     }
-    return res.status(200).json({ cart: cart });
+    return res.status(200).json({ cart: cart , message: "Cart found successfully" ,success:true});
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error",success:false });
   }
 };
 

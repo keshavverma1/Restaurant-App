@@ -12,23 +12,24 @@ const protect = async (req, res ,next) => {
         const user =await userModel.findById(decoded.id);
         req.user = user;
         return next();
-    } catch (error) {
+    } catch (error){
         console.log(error);
         return res.status(401).json({ message: "Unauthorized" });
     }
 };
 
 const isAdmin = async (req,res,next) =>{
-    const token = req.cookies.token;
-    if(!token){
+    const Admintoken = req.cookies.Admintoken;
+    if(!Admintoken){
         return res.status(401).json({ message: "Unauthorized" });
     }
     try {
-    const decoded = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
-        const user =await userModel.findById(decoded.id);
-        req.admin = user;
+    const decoded = jwt.verify(req.cookies.Admintoken, process.env.JWT_SECRET);
+      
+        req.admin = decoded;//{id,role,email}
+        console.log("REQADMIN",req.admin);
         if(req.admin.email === process.env.ADMIN_EMAIL){
-            return next();
+            next();
         }
     } catch (error) {
         console.log(error);

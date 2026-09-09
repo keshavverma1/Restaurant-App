@@ -30,7 +30,7 @@ const addMenuItem = async (req, res) => {
     await menuItem.save();
     return res
       .status(201)
-      .json({ message: "Menu Item added successfully", menuItem: menuItem });
+      .json({ message: "Menu Item added successfully", menuItem: menuItem  ,success:true});
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -40,11 +40,11 @@ const addMenuItem = async (req, res) => {
 //GetAllMenuItems------------------------------------------------------
 const getAllMenuItems = async (req, res) => {
   try {
-    const menuItems = await menuModel.find().populate("category", "name");
+    const menuItems = await menuModel.find().populate("category");
     if (!menuItems) {
       return res.status(404).json({ message: "Menu Items not found" });
     }
-    return res.status(200).json({ menuItems: menuItems });
+    return res.status(200).json({ menuItems: menuItems ,success:true });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -82,7 +82,7 @@ const updateMenuItem = async (req, res) => {
       menu.isAvailable = isAvailable;
     }
     await menu.save();
-    return res.status(200).json({ message: "Menu Item updated successfully" });
+    return res.status(200).json({ message: "Menu Item updated successfully" ,success:true });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });

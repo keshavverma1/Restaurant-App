@@ -1,5 +1,5 @@
 import cartModel from "../model/cartModel.js";
-import {addToCart,getuserCart,removefromCart} from "../controller/cartController.js";
+import { addToCart, getuserCart, removeFromCart } from "../controller/cartController.js";
 import {protect} from "../middleware/authMiddleware.js";
 import {Router} from "express";
 const cartRouter = Router();

@@ -11,15 +11,14 @@ import { protect, isAdmin } from "../middleware/authMiddleware.js";
 import { Router } from "express";
 const menuRouter = Router();
 ''
-menuRouter.post("/add", protect, isAdmin, upload.single("image"), addMenuItem);
+menuRouter.post("/add",isAdmin, upload.single("image"), addMenuItem);
 menuRouter.get("/all", getAllMenuItems);
 menuRouter.put(
   "/update/:id",
-  protect,
   isAdmin,
   upload.single("image"),
   updateMenuItem,
 );
-menuRouter.delete("/delete/:id", protect, isAdmin, deleteMenuItem);
+menuRouter.delete("/delete/:id",isAdmin, deleteMenuItem);
    
 export default menuRouter;
