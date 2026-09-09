@@ -2,7 +2,7 @@
 import React, { useContext, useMemo, useState } from "react";
 import { FiSearch, FiShoppingBag, FiStar } from "react-icons/fi";
 import { AppContext } from "../context/AppContext";
-import Marquee from "./marquee";
+import Marquee from "./Marquee.jsx";
 
 const Menu = () => {
   const { menus , handleCart } = useContext(AppContext);
