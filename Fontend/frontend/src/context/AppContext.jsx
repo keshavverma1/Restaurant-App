@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://restaurant-app-order-now.vercel.app/";
 axios.defaults.withCredentials = true;
 export const AppContext = createContext();
 
