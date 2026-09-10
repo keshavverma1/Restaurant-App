@@ -280,7 +280,7 @@ const NavBar = () => {
                           <>
                             {/* MY BOOKING */}
                             <Link
-                              to="/my-bookings"
+                              to="/bookings"
                               onClick={() => setisMenuopen(false)}
                               className="group flex items-center justify-between
                  text-gray-200 text-xl px-6 py-5 rounded-2xl
