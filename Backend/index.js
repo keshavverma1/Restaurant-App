@@ -13,12 +13,12 @@ const app = express();
 connectDatabase();
 
 //Middlewares
-app.use(cors(
-  {
-    origin: "https://restaurant-app-ga99.vercel.app",
+app.use(
+  cors({
+    origin: "https://restaurant-app-sigma-sooty.vercel.app",
     credentials: true,
-  }
-));
+  })
+);
 // Parse JSON data sent by the client into a JavaScript object.
 app.use(express.json());
 app.use(cookieParser());
