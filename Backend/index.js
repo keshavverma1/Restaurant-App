@@ -15,7 +15,7 @@ connectDatabase();
 //Middlewares
 app.use(
   cors({
-    origin: "https://keshavonline.in",
+    origin: "https://dinezo.online",
     credentials: true,
   })
 );
