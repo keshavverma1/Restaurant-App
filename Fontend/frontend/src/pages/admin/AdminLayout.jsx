@@ -49,7 +49,7 @@ const AdminLayout = () => {
   ];
 
   const location = useLocation();
-  const [sideBarOpen, setSidebarOpen] = useState(true);
+  const [sideBarOpen, setSidebarOpen] = useState(false);
 
   const { admin, setAdmin, axios, navigate } = useContext(AppContext);
 
