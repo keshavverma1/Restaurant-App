@@ -140,7 +140,7 @@ const AdminLayout = () => {
               className="flex items-center gap-2 pl-[70px] pt-[5px] md:pl-[20px] border-b border-gray-700 pb-2"
             >
               <img
-                src="/public/Burger.png"
+                src="https://res.cloudinary.com/dvr0vpuuk/image/upload/v1789025775/ChatGPT_Image_Aug_30_2026_05_51_15_PM_ea0djw.png"
                 alt=""
                 className="w-15 md:w-23"
               />
