@@ -61,7 +61,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-amber-300/10 blur-3xl rounded-full" />
 
               <img
-                src="/public/Burger.png"
+                src="https://res.cloudinary.com/dvr0vpuuk/image/upload/v1789025775/ChatGPT_Image_Aug_30_2026_05_51_15_PM_ea0djw.png"
                 alt="Delicious Food"
                 className="relative w-64 sm:w-80 lg:w-[420px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
               />
