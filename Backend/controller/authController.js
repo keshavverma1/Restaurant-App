@@ -6,12 +6,13 @@ const generateToken = (res, payload) => {
   const generatedToken = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });
-  res.cookie("token", generatedToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-  });
+res.cookie("token", generatedToken, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  path: "/",
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+});
   return generatedToken;
 };
 
@@ -91,23 +92,26 @@ const loginUser = async (req, res) => {
   }
 };
 
-//Logout User-----------------------
 const logoutUser = async (req, res) => {
   try {
     res.clearCookie("token", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-  });
-    return res
-      .status(200)
-      .json({ success: true, message: "User logged out successfully" });
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "User logged out successfully",
+    });
   } catch (error) {
     console.error(error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal Server Error" });
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
   }
 };
 
@@ -132,12 +136,13 @@ const adminLogin = async (req, res) => {
     const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
       expiresIn: "30d",
     });
-    res.cookie("Admintoken", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
+res.cookie("Admintoken", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  path: "/",
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+});
     return res.status(200).json({
       success: true,
       token: token,
@@ -186,20 +191,23 @@ const AdminLogout = async (req, res) => {
   try {
     res.clearCookie("Admintoken", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "none",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      path: "/",
     });
-    return res
-      .status(200)
-      .json({ success: true, message: "Admin logged out successfully" });
-    
+
+    return res.status(200).json({
+      success: true,
+      message: "Admin logged out successfully",
+    });
   } catch (error) {
     console.error(error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal Server Error" });
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
   }
-}
+};
 
 export { registerUser, loginUser, logoutUser, adminLogin ,getProfile, isAuth ,AdminLogout };
