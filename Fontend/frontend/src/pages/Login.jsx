@@ -74,7 +74,7 @@ const Login = () => {
       <div className="w-full hidden md:inline-block">
         <img
           className="h-full"
-          src="../../public/login.jpg"
+          src="https://res.cloudinary.com/dvr0vpuuk/image/upload/v1788963184/fcaraplgo15ltnjh0mth.jpg"
           alt="leftSideImage"
         />
       </div>
