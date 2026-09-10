@@ -190,7 +190,7 @@ const MyBooking = () => {
               {/* Footer */}
               <div className="border-t border-gray-800 mt-6 pt-4">
                 <p className="text-xs text-gray-500">
-                  Order Now
+                  Dinezo
                 </p>
 
                 
