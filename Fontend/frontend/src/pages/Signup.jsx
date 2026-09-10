@@ -79,7 +79,7 @@ const Signup = () => {
       <div className="w-full hidden md:inline-block">
         <img
           className="h-full"
-          src="../../public/register.jpg"
+          src="https://res.cloudinary.com/dvr0vpuuk/image/upload/v1789036101/register_rvfv69.avif"
           alt="leftSideImage"
         />
       </div>
@@ -174,7 +174,7 @@ const Signup = () => {
           </button>
         <p className="text-gray-500/90 text-sm mt-4">
   Don't have an account?{" "}
-  <Link to="/signup" className="text-indigo-400 hover:underline">
+  <Link to="/login" className="text-indigo-400 hover:underline">
     Sign up
   </Link>
 </p>
