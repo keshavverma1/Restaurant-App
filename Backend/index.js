@@ -15,7 +15,7 @@ connectDatabase();
 //Middlewares
 app.use(
   cors({
-    origin: "https://restaurant-app-sigma-sooty.vercel.app",
+    origin: "keshavonline.in",
     credentials: true,
   })
 );
