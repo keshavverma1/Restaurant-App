@@ -56,9 +56,9 @@ const NavBar = () => {
                     fontStyle: "normal",
                   }}
                 >
-                  Order{" "}
+                  Dine{" "}
                   <span className="bg-amber-300 md:text-[26px] text-[20px] text-[#0f172A] rounded-full px-2 py-2">
-                    now
+                    zo
                   </span>
                 </h1>
               </Link>
