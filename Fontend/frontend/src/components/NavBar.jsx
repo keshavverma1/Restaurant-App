@@ -43,7 +43,7 @@ const NavBar = () => {
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-0">
                 <img
-                  src="../../public/Burger.png"
+                  src="https://res.cloudinary.com/dvr0vpuuk/image/upload/v1789025775/ChatGPT_Image_Aug_30_2026_05_51_15_PM_ea0djw.png"
                   alt=""
                   className="w-15 md:w-23"
                 />
