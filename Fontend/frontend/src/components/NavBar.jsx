@@ -329,6 +329,7 @@ const NavBar = () => {
                             </Link>
                             <Link
                               to="/book-table"
+                              onClick={() => setisMenuopen(false)}
                               className="group flex items-center justify-between
                  text-gray-200 text-xl px-6 py-5 rounded-2xl
                  bg-gradient-to-r from-[#111111] to-[#0b0b0b]
