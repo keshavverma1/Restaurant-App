@@ -81,9 +81,9 @@ const Footer = () => {
                 className="text-2xl font-bold tracking-tight"
                 style={{ fontFamily: '"Urbanist", sans-serif' }}
               >
-                Order
+                Dine
                 <span className="bg-amber-300 text-[#0f172A] rounded-full px-2 py-1 ml-1">
-                  now
+                  zo
                 </span>
               </h1>
             </Link>
