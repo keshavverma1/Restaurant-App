@@ -15,7 +15,7 @@ connectDatabase();
 //Middlewares
 app.use(
   cors({
-    origin: "keshavonline.in",
+    origin: "https://keshavonline.in",
     credentials: true,
   })
 );
