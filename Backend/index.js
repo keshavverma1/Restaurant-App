@@ -9,8 +9,18 @@ const app = express();
 //Port of Server
 
 
-// Connect to the database
-connectDatabase();
+app.use(async (req, res, next) => {
+  try {
+    await connectDatabase();
+    next();
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    res.status(500).json({
+      success: false,
+      message: "Database connection failed",
+    });
+  }
+});
 
 //Middlewares
 app.use(
