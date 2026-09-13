@@ -9,18 +9,7 @@ const app = express();
 //Port of Server
 
 
-app.use(async (req, res, next) => {
-  try {
-    await connectDatabase();
-    next();
-  } catch (error) {
-    console.error("Database connection failed:", error);
-    res.status(500).json({
-      success: false,
-      message: "Database connection failed",
-    });
-  }
-});
+
 
 //Middlewares
 app.use(
@@ -33,6 +22,18 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.use(async (req, res, next) => {
+  try {
+    await connectDatabase();
+    next();
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    res.status(500).json({
+      success: false,
+      message: "Database connection failed",
+    });
+  }
+});
 
 //Routes
 app.get("/", (req, res) => {
